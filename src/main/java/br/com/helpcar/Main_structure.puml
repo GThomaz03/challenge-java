@@ -1,0 +1,228 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": true,
+    "cutInterfaceStructures": true,
+    "cutDataStructures": true,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 3,
+    "backwardDepth": 3,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "ForwardOnly" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "br.com.helpcar.Main",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_98689 { 
+   	label=com
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   subgraph cluster_2078956934 { 
+   	label=helpcar
+	labeljust=l
+	fillcolor="#d8d8d8"
+	style=filled
+   
+   Cliente1864002041[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Cliente</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   cpf: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   email: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   endereco: Endereco [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   idCliente: Long [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   nome: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   senha: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   telefone: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   veiculo: Veiculo [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ adicionarVeiculo(idCarro: Long, placa: String, modelo: String, marca: String, ano: int)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+ClienteDaoImplementada1352524172[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ClienteDaoImplementada</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   connection: Connection [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ create(cliente: Cliente)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ delete(id: Long)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ read(): List&lt;Cliente&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ update(cliente: Cliente)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Endereco1864002041[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Endereco</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   bairro: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   cep: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   cidade: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   complemento: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   estado: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   id: Long [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   logradouro: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   numero: String [0..1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Main1961482008[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Main</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ main(args: String[])</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+ValidadorUtil1864002041[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ValidadorUtil</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ isCPFValid(cpf: String): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ isEmailValid(email: String): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ isPlacaValid(placa: String): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ isTelefoneValid(telefone: String): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Veiculo1864002041[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Veiculo</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   ano: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   idCliente: Long [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   idVeiculo: Long [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   marca: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   modelo: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   placa: String [0..1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+VeiculoDaoImplementada1352524172[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)VeiculoDaoImplementada</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   connection: Connection [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ create(veiculo: Veiculo)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ delete(id: Long)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ read(): List&lt;Veiculo&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ update(veiculo: Veiculo)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+} 
+
+'edges    
+Cliente1864002041 -> Endereco1864002041[label="endereco
+[0..1]"];
+Cliente1864002041 -> Veiculo1864002041[label="veiculo
+[0..1]"];
+Main1961482008 -> Cliente1864002041[label="main() -> adicionarVeiculo()"];
+Main1961482008 -> ClienteDaoImplementada1352524172[arrowhead=none];
+Main1961482008 -> VeiculoDaoImplementada1352524172[arrowhead=none];
+    
+}
+@enduml

@@ -1,0 +1,227 @@
+@startuml
+
+/' diagram meta data start
+config=CallConfiguration;
+{
+  "rootMethod": "br.com.helpcar.Main#main(String[])",
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": true,
+    "cutInterfaceStructures": true,
+    "cutDataStructures": true,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 3,
+    "backwardDepth": 3,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "ForwardOnly" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showMethodParametersTypes": false,
+    "showMethodParametersNames": false,
+    "showMethodReturnType": false,
+    "showPackageLevels": 2,
+    "showCallOrder": false,
+    "edgeMode": "MethodsOnly", // TypesOnly, MethodsOnly, TypesAndMethods, MethodsAndDirectTypeUsage
+    "showDetailedClassStructure": false
+  },
+  "rootClass": "br.com.helpcar.Main",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="LR"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_98689 { 
+   	label=com
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   subgraph cluster_2078956934 { 
+   	label=helpcar
+	labeljust=l
+	fillcolor="#d8d8d8"
+	style=filled
+   
+   subgraph cluster_1022108897 { 
+   	label=Main
+	labeljust=l
+	fillcolor=white
+	style=filled
+   
+   Main1961482008XXXmain1859653459[
+	label="+ main()"
+	style=filled
+	fillcolor=white
+	tooltip="Main
+
+null"
+	penwidth=4
+	fontcolor=darkgreen
+];
+} 
+
+subgraph cluster_1137233139 { 
+   	label=Cliente
+	labeljust=l
+	fillcolor=white
+	style=filled
+   
+   Cliente1864002041XXXadicionarVeiculo1281041744[
+	label="+ adicionarVeiculo()"
+	style=filled
+	fillcolor=white
+	tooltip="Cliente
+
+null"
+	fontcolor=darkgreen
+];
+} 
+
+subgraph cluster_117101923 { 
+   	label=ValidadorUtil
+	labeljust=l
+	fillcolor=white
+	style=filled
+   
+   ValidadorUtil1864002041XXXisCPFValid1808118735[
+	label="+ isCPFValid()"
+	style=filled
+	fillcolor=white
+	tooltip="ValidadorUtil
+
+null"
+	fontcolor=darkgreen
+];
+
+ValidadorUtil1864002041XXXisEmailValid1808118735[
+	label="+ isEmailValid()"
+	style=filled
+	fillcolor=white
+	tooltip="ValidadorUtil
+
+null"
+	fontcolor=darkgreen
+];
+
+ValidadorUtil1864002041XXXisPlacaValid1808118735[
+	label="+ isPlacaValid()"
+	style=filled
+	fillcolor=white
+	tooltip="ValidadorUtil
+
+null"
+	fontcolor=darkgreen
+];
+
+ValidadorUtil1864002041XXXisTelefoneValid1808118735[
+	label="+ isTelefoneValid()"
+	style=filled
+	fillcolor=white
+	tooltip="ValidadorUtil
+
+null"
+	fontcolor=darkgreen
+];
+} 
+
+subgraph cluster_1239277568 { 
+   	label=VeiculoDaoImplementada
+	labeljust=l
+	fillcolor=white
+	style=filled
+   
+   VeiculoDaoImplementada1352524172XXXread0[
+	label="+ read()"
+	style=filled
+	fillcolor=white
+	tooltip="VeiculoDaoImplementada
+
+null"
+	fontcolor=darkgreen
+];
+} 
+
+subgraph cluster_1760323915 { 
+   	label=ClienteDaoImplementada
+	labeljust=l
+	fillcolor=white
+	style=filled
+   
+   ClienteDaoImplementada1352524172XXXread0[
+	label="+ read()"
+	style=filled
+	fillcolor=white
+	tooltip="ClienteDaoImplementada
+
+null"
+	fontcolor=darkgreen
+];
+} 
+} 
+} 
+
+'edges    
+Main1961482008XXXmain1859653459 -> Cliente1864002041XXXadicionarVeiculo1281041744;
+Main1961482008XXXmain1859653459 -> ClienteDaoImplementada1352524172XXXread0;
+Main1961482008XXXmain1859653459 -> ValidadorUtil1864002041XXXisCPFValid1808118735;
+Main1961482008XXXmain1859653459 -> ValidadorUtil1864002041XXXisEmailValid1808118735;
+Main1961482008XXXmain1859653459 -> ValidadorUtil1864002041XXXisPlacaValid1808118735;
+Main1961482008XXXmain1859653459 -> ValidadorUtil1864002041XXXisTelefoneValid1808118735;
+Main1961482008XXXmain1859653459 -> VeiculoDaoImplementada1352524172XXXread0;
+    
+}
+@enduml
