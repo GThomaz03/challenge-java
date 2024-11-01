@@ -17,15 +17,14 @@ public class ClienteDaoImplementada implements ClienteDao{
 
     @Override
     public void create(Cliente cliente) throws SQLException {
-        String sql = "INSERT INTO T_HC_CLIENTE ( ID_CLIENTE, NM_CLIENTE, NR_CPF, DS_SENHA, DS_EMAIL ) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO T_HC_CLIENTE ( NM_CLIENTE, NR_CPF, DS_SENHA, DS_EMAIL ) VALUES ( ?, ?, ?, ?)";
         Connection connection = dbc.getConnection();
         PreparedStatement pstmt = connection.prepareStatement(sql);
 
-        pstmt.setLong(1, cliente.getIdCliente());
-        pstmt.setString(2, cliente.getNome());
-        pstmt.setString(3, cliente.getCpf());
-        pstmt.setString(4, cliente.getSenha());
-        pstmt.setString(5, cliente.getEmail());
+        pstmt.setString(1, cliente.getNome());
+        pstmt.setString(2, cliente.getCpf());
+        pstmt.setString(3, cliente.getSenha());
+        pstmt.setString(4, cliente.getEmail());
         pstmt.executeUpdate();
     }
 

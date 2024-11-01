@@ -16,16 +16,15 @@ public class VeiculoDaoImplementada implements VeiculoDao{
 
     @Override
     public void create(Veiculo veiculo) throws SQLException {
-        String sql = "INSERT INTO T_HC_VEICULO( ID_VEICULO, ID_CLIENTE, NR_PLACA, NM_MODELO, NM_MARCA, NR_ANO_FABRICACAO ) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO T_HC_VEICULO( ID_CLIENTE, NR_PLACA, NM_MODELO, NM_MARCA, NR_ANO_FABRICACAO ) VALUES (?, ?, ?, ?, ?, ?)";
         Connection connection = dbc.getConnection();
         PreparedStatement pstmt = connection.prepareStatement(sql);
 
-        pstmt.setLong(1, veiculo.getId_veiculo());
-        pstmt.setLong(2, veiculo.getId_cliente());
-        pstmt.setString(3, veiculo.getPlaca());
-        pstmt.setString(4,veiculo.getModelo());
-        pstmt.setString(5,veiculo.getMarca());
-        pstmt.setInt(6, veiculo.getAno());
+        pstmt.setLong(1, veiculo.getId_cliente());
+        pstmt.setString(2, veiculo.getPlaca());
+        pstmt.setString(3,veiculo.getModelo());
+        pstmt.setString(4,veiculo.getMarca());
+        pstmt.setInt(5, veiculo.getAno());
         pstmt.executeUpdate();
     }
 

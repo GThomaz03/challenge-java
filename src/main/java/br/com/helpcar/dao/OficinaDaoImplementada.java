@@ -16,14 +16,13 @@ public class OficinaDaoImplementada implements OficinaDao {
 
     @Override
     public void create(Oficina oficina) throws SQLException {
-        String sql = "INSERT INTO T_HC_OFICINA (ID_OFICINA, NM_OFICINA, CT_OFICINA, NR_CNPJ) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO T_HC_OFICINA ( NM_OFICINA, CT_OFICINA, NR_CNPJ) VALUES ( ?, ?, ?)";
         try (Connection connection = dbc.getConnection();
              PreparedStatement pstmt = connection.prepareStatement(sql)) {
 
-            pstmt.setLong(1, oficina.getId());
-            pstmt.setString(2, oficina.getNome());
-            pstmt.setString(3, oficina.getTelefone());
-            pstmt.setString(4, oficina.getCnpj());
+            pstmt.setString(1, oficina.getNome());
+            pstmt.setString(2, oficina.getTelefone());
+            pstmt.setString(3, oficina.getCnpj());
             pstmt.executeUpdate();
         }
     }

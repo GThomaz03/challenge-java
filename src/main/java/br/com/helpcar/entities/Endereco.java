@@ -14,6 +14,15 @@ public class Endereco {
         this.numero = numero;
     }
 
+    public Endereco( String cep, String logradouro, String numero, String bairro, String cidade, String estado) {
+        this.cep = cep;
+        this.logradouro = logradouro;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.numero = numero;
+    }
+
     public Endereco(Long id, String cep, String logradouro, String complemento, String numero, String bairro, String cidade, String estado) {
         this.id = id;
         this.cep = cep;

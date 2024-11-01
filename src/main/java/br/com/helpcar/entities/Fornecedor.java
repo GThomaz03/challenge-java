@@ -6,7 +6,8 @@ public class Fornecedor {
     private ChatBot diagnostico;
     private List<String> sitesConfiaveis;
 
-    public Fornecedor() {
+    public Fornecedor(List<String> sitesConfiaveis) {
+        this.sitesConfiaveis = sitesConfiaveis;
     }
 
     public ChatBot getDiagnostico() {

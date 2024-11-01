@@ -16,18 +16,17 @@ public class EnderecoDaoImplementada implements EnderecoDao {
 
     @Override
     public void create(Endereco endereco) throws SQLException {
-        String sql = "INSERT INTO T_HC_ENDERECO (ID_ENDERECO, NM_LOGRADOURO, NR_ENDERECO, DC_COMPLEMENTO, DC_BAIRRO, DC_CIDADE, DC_ESTADO, NR_CEP) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO T_HC_ENDERECO ( NM_LOGRADOURO, NR_ENDERECO, DC_COMPLEMENTO, DC_BAIRRO, DC_CIDADE, DC_ESTADO, NR_CEP) VALUES ( ?, ?, ?, ?, ?, ?, ?)";
         try (Connection connection = dbc.getConnection();
              PreparedStatement pstmt = connection.prepareStatement(sql)) {
 
-            pstmt.setLong(1, endereco.getId());
-            pstmt.setString(2, endereco.getLogradouro());
-            pstmt.setString(3, endereco.getNumero());
-            pstmt.setString(4, endereco.getComplemento());
-            pstmt.setString(5, endereco.getBairro());
-            pstmt.setString(6, endereco.getCidade());
-            pstmt.setString(7, endereco.getEstado());
-            pstmt.setString(8, endereco.getCep());
+            pstmt.setString(1, endereco.getLogradouro());
+            pstmt.setString(2, endereco.getNumero());
+            pstmt.setString(3, endereco.getComplemento());
+            pstmt.setString(4, endereco.getBairro());
+            pstmt.setString(5, endereco.getCidade());
+            pstmt.setString(6, endereco.getEstado());
+            pstmt.setString(7, endereco.getCep());
             pstmt.executeUpdate();
         }
     }
