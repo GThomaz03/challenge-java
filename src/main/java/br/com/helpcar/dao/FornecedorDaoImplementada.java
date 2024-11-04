@@ -1,7 +1,6 @@
 package br.com.helpcar.dao;
 
-import br.com.helpcar.DatabaseConfig;
-import br.com.helpcar.entities.Endereco;
+import br.com.helpcar.config.DatabaseConfig;
 import br.com.helpcar.entities.Fornecedor;
 
 import java.sql.*;

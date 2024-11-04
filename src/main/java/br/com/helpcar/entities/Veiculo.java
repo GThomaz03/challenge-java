@@ -14,6 +14,18 @@ public class Veiculo {
         this.ano = ano;
     }
 
+    public Veiculo( Long id_cliente, String placa, String modelo, String marca, int ano) {
+        this.idCliente = id_cliente;
+        this.placa = placa;
+        this.modelo = modelo;
+        this.marca = marca;
+        this.ano = ano;
+    }
+
+    public Veiculo() {
+
+    }
+
     public Long getId_veiculo() {
         return idVeiculo;
     }

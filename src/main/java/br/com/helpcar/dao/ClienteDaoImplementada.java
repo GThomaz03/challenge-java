@@ -1,77 +1,75 @@
 package br.com.helpcar.dao;
 
-import br.com.helpcar.DatabaseConfig;
+import br.com.helpcar.config.DatabaseConfig;
 import br.com.helpcar.entities.Cliente;
-import br.com.helpcar.entities.Veiculo;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClienteDaoImplementada implements ClienteDao{
-    private final DatabaseConfig dbc;
+public class ClienteDaoImplementada implements ClienteDao {
+    private final Connection connection;
 
-    public ClienteDaoImplementada(DatabaseConfig dbc) {
-        this.dbc = dbc;
+    public ClienteDaoImplementada( Connection connection) {
+        this.connection = connection;
+    }
+
+    @Override
+    public List<Cliente> findAll() {
+        List<Cliente> clientes = new ArrayList<>();
+        String sql = "SELECT * FROM T_HC_CLIENTE";
+
+        try (Statement stmt = connection.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+                Cliente cliente = new Cliente(
+                        rs.getLong("ID_CLIENTE"),
+                        rs.getString("NR_CPF"),
+                        rs.getString("NM_CLIENTE"),
+                        rs.getString("DS_EMAIL"),
+                        rs.getString("DS_SENHA")
+                );
+                clientes.add(cliente);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return clientes;
     }
 
     @Override
     public void create(Cliente cliente) throws SQLException {
-        String sql = "INSERT INTO T_HC_CLIENTE ( NM_CLIENTE, NR_CPF, DS_SENHA, DS_EMAIL ) VALUES ( ?, ?, ?, ?)";
-        Connection connection = dbc.getConnection();
-        PreparedStatement pstmt = connection.prepareStatement(sql);
+        String sql = "INSERT INTO T_HC_CLIENTE (NM_CLIENTE, NR_CPF, DS_SENHA, DS_EMAIL) VALUES (?, ?, ?, ?)";
 
-        pstmt.setString(1, cliente.getNome());
-        pstmt.setString(2, cliente.getCpf());
-        pstmt.setString(3, cliente.getSenha());
-        pstmt.setString(4, cliente.getEmail());
-        pstmt.executeUpdate();
-    }
-
-    @Override
-    public List<Cliente> read() throws SQLException {
-        List<Cliente> result = new ArrayList<>();
-
-        //1- Executar o querry select *
-        String sql = "SELECT * FROM T_HC_CLIENTE";
-        Connection connection = dbc.getConnection();
-        Statement stmt = connection.createStatement();
-        ResultSet rs = stmt.executeQuery(sql);
-
-        //2- mapear linhas para objetos
-        while(rs.next()){
-            Long id = rs.getLong("ID_CLIENTE");
-            String nome = rs.getNString("NM_CLIENTE");
-            String cpf = rs.getNString("NR_CPF");
-            String senha = rs.getNString("DS_SENHA");
-            String  email = rs.getString("DS_EMAIL");
-            result.add(new Cliente(id, nome, cpf, senha, email));
+        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+            pstmt.setString(1, cliente.getNome());
+            pstmt.setString(2, cliente.getCpf());
+            pstmt.setString(3, cliente.getSenha());
+            pstmt.setString(4, cliente.getEmail());
+            pstmt.executeUpdate();
         }
-        return result;
     }
+
 
     @Override
     public void update(Cliente cliente) throws SQLException {
-        String sql = "update T_HC_CLIENTE set NM_CLIENTE=?, DE_SENHA=? where iD=?";
-        Connection connection = dbc.getConnection();
-        PreparedStatement pstmt = connection.prepareStatement(sql);
-        pstmt.setString(1, cliente.getNome());
-        pstmt.setString(2, cliente.getSenha());
-        pstmt.setLong(3, cliente.getIdCliente());
+        String sql = "UPDATE T_HC_CLIENTE SET NM_CLIENTE = ?, DS_SENHA = ? WHERE ID_CLIENTE = ?";
 
-        pstmt.executeUpdate();
+        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+            pstmt.setString(1, cliente.getNome());
+            pstmt.setString(2, cliente.getSenha());
+            pstmt.setLong(3, cliente.getIdCliente());
+            pstmt.executeUpdate();
+        }
     }
 
     @Override
     public void delete(Long id) throws SQLException {
-        String sql = "delete T_HC_CLIENTE where id = ?";
+        String sql = "DELETE FROM T_HC_CLIENTE WHERE ID_CLIENTE = ?";
 
-        Connection connection = dbc.getConnection();
-        PreparedStatement pstmt = connection.prepareStatement(sql);
-        pstmt.setLong(1, id);
-
-        pstmt.executeUpdate();
+        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+            pstmt.setLong(1, id);
+            pstmt.executeUpdate();
+        }
     }
-
-
 }

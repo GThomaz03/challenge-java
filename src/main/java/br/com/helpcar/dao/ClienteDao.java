@@ -12,7 +12,7 @@ public interface ClienteDao {
     void create(Cliente cliente) throws SQLException;
 
     //TODO: Criar assinatura para Read
-    List<Cliente> read() throws SQLException;
+    List<Cliente> findAll() throws SQLException;
 
     //TODO: Criar assinatura para Update
     void update(Cliente cliente) throws SQLException;

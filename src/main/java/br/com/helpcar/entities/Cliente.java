@@ -13,12 +13,33 @@ public class Cliente {
     //Construtores
 
 
-    public Cliente( Long id, String cpf, String nome, String email, String senha) {
+    public Cliente(String cpf, String nome, String telefone, String email, String senha) {
+        this.cpf = cpf;
+        this.nome = nome;
+        this.telefone = telefone;
+        this.email = email;
+        this.senha = senha;
+    }
+
+    public Cliente(Long id, String cpf, String nome, String email, String senha) {
         this.idCliente = id;
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
         this.senha = senha;
+    }
+
+    public Cliente(Long id, String cpf, String nome,String telefone, String email, String senha) {
+        this.idCliente = id;
+        this.nome = nome;
+        this.telefone = telefone;
+        this.cpf = cpf;
+        this.email = email;
+        this.senha = senha;
+    }
+
+    public Cliente() {
+
     }
 
     //Método
@@ -97,6 +118,7 @@ public class Cliente {
                 "idCliente=" + idCliente +
                 ", cpf='" + cpf + '\'' +
                 ", nome='" + nome + '\'' +
+                ", telefone='" + telefone + '\'' +
                 ", email='" + email + '\'' +
                 ", senha='" + senha + '\'' +
                 '}';

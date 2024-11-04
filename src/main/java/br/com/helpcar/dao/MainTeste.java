@@ -1,10 +1,11 @@
 package br.com.helpcar.dao;
 
-import br.com.helpcar.DatabaseConfig;
+import br.com.helpcar.config.DatabaseConfig;
 import br.com.helpcar.entities.*;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 public class MainTeste {
     public static final String URL = "jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL";
@@ -16,12 +17,8 @@ public class MainTeste {
 //
 ////        //
 ////
-        DatabaseConfig db = new DatabaseConfig(URL, USER, PASS);
-        try {
-            Connection Connection = db.getConnection();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        DatabaseConfig db = new DatabaseConfig();
+        Connection connection = db.getConnection();
 
 //        Endereco endereco1 = new Endereco( "05541030", "Rua dos pinheiros", "1155", "Pinheiros", "São Paulo" ,"SP");
 //
@@ -45,16 +42,16 @@ public class MainTeste {
 //            throw new RuntimeException("Erro ao criar oficina: " + e.getMessage(), e);
 //        }
 
-        ServicoRevisaoDaoImplementada revisaoDao = new ServicoRevisaoDaoImplementada(db);
-        ServicoRevisao servicoRevisao = new ServicoRevisao("Revisão do carburador do veiculo", 120.0,"Carburador", "Interior, Exterior, Qualidade", 120);
-
-        // Teste de ServicoRevisao
-        try {
-            revisaoDao.create(servicoRevisao);
-            System.out.println("Serviço de Revisão inserido com ID: " + servicoRevisao.getId());
-        } catch (SQLException e) {
-            System.err.println("Erro ao inserir Serviço de Revisão: " + e.getMessage());
-        }
+//        ServicoRevisaoDaoImplementada revisaoDao = new ServicoRevisaoDaoImplementada(db);
+//        ServicoRevisao servicoRevisao = new ServicoRevisao("Revisão do carburador do veiculo", 120.0,"Carburador", "Interior, Exterior, Qualidade", 120, 1L);
+//
+////         Teste de ServicoRevisao
+//        try {
+//            revisaoDao.create(servicoRevisao);
+//            System.out.println("Serviço de Revisão inserido com ID: " + servicoRevisao.getId());
+//        } catch (SQLException e) {
+//            System.err.println("Erro ao inserir Serviço de Revisão: " + e.getMessage());
+//        }
 
 //        // Teste de ServicoReparo
 //        try {
@@ -76,7 +73,52 @@ public class MainTeste {
 //            System.err.println("Erro ao inserir Serviço de Manutenção: " + e.getMessage());
 //        }
 
+//        try (connection) {
+//            // Inicializando o DAO de Cliente
+//            ClienteDaoImplementada clienteDao = new ClienteDaoImplementada(connection);
+//
+//            // Testando o método findAll
+//            List<Cliente> clientes = clienteDao.findAll();
+//
+//            // Exibindo os resultados
+//            System.out.println("Lista de Clientes:");
+//            for (Cliente cliente : clientes) {
+//                System.out.println(cliente.toString());
+//            }
+//
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
 
+        String telefone = "+5511963320175";
+        String ddd = telefone.substring(0,3);
+        String ddi = telefone.substring(3, 5);
+        String numero = telefone.substring(5);
+
+        System.out.println(ddd);
+        System.out.println(ddi);
+        System.out.println(numero);
+        System.out.println(telefone);
+
+
+//        Telefone telefone1 = new Telefone("+5511963325874");
+//
+        List<Telefone> telefones;
+        TelefoneDao telefoneDao = new TelefeoneDaoImplementada(connection);
+        try {
+            telefones = telefoneDao.read();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        System.out.println(telefones);
+
+
+//        try {
+//            telefoneDao.create(telefone1);
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
 
     }
 }
