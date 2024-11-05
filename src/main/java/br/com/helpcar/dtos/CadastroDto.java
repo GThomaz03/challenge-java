@@ -9,7 +9,7 @@ public class CadastroDto {
     private String senha;
     private String marca;
     private String modelo;
-    private int ano;
+    private String ano;
     private String placa;
     private String descricao;
     private String logradouro;
@@ -79,11 +79,11 @@ public class CadastroDto {
     }
 
     public int getAno() {
-        return ano;
+        return Integer.parseInt(ano);
     }
 
     public void setAno(int ano) {
-        this.ano = ano;
+        this.ano = String.valueOf(ano);
     }
 
     public String getPlaca() {

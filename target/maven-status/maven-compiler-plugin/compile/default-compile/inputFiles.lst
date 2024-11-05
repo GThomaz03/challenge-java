@@ -8,7 +8,6 @@ E:\Challenge\JAVA\sprint3\Challenge\src\main\java\br\com\helpcar\dao\ServicoDao.
 E:\Challenge\JAVA\sprint3\Challenge\src\main\java\br\com\helpcar\entities\ServicoReparo.java
 E:\Challenge\JAVA\sprint3\Challenge\src\main\java\br\com\helpcar\dao\VeiculoDao.java
 E:\Challenge\JAVA\sprint3\Challenge\src\main\java\br\com\helpcar\entities\ServicoManutencao.java
-E:\Challenge\JAVA\sprint3\Challenge\src\main\java\br\com\helpcar\DaoTests\ServicoRevisaoDAOTest.java
 E:\Challenge\JAVA\sprint3\Challenge\src\main\java\br\com\helpcar\dao\FornecedorDao.java
 E:\Challenge\JAVA\sprint3\Challenge\src\main\java\br\com\helpcar\entities\ServicoRevisao.java
 E:\Challenge\JAVA\sprint3\Challenge\src\main\java\br\com\helpcar\App.java
@@ -26,13 +25,10 @@ E:\Challenge\JAVA\sprint3\Challenge\src\main\java\br\com\helpcar\entities\ChatBo
 E:\Challenge\JAVA\sprint3\Challenge\src\main\java\br\com\helpcar\dao\TelefoneDao.java
 E:\Challenge\JAVA\sprint3\Challenge\src\main\java\br\com\helpcar\entities\Fornecedor.java
 E:\Challenge\JAVA\sprint3\Challenge\src\main\java\br\com\helpcar\dao\TelefeoneDaoImplementada.java
-E:\Challenge\JAVA\sprint3\Challenge\src\main\java\br\com\helpcar\dtos\ClienteDto.java
 E:\Challenge\JAVA\sprint3\Challenge\src\main\java\br\com\helpcar\service\ValidadorUtil.java
 E:\Challenge\JAVA\sprint3\Challenge\src\main\java\br\com\helpcar\dao\VeiculoDaoImplementada.java
 E:\Challenge\JAVA\sprint3\Challenge\src\main\java\br\com\helpcar\dao\ClienteDaoImplementada.java
-E:\Challenge\JAVA\sprint3\Challenge\src\main\java\br\com\helpcar\Ia.java
 E:\Challenge\JAVA\sprint3\Challenge\src\main\java\br\com\helpcar\entities\Telefone.java
-E:\Challenge\JAVA\sprint3\Challenge\src\main\java\br\com\helpcar\dao\MainTeste.java
 E:\Challenge\JAVA\sprint3\Challenge\src\main\java\br\com\helpcar\dao\OficinaDaoImplementada.java
 E:\Challenge\JAVA\sprint3\Challenge\src\main\java\br\com\helpcar\dao\FornecedorDaoImplementada.java
 E:\Challenge\JAVA\sprint3\Challenge\src\main\java\br\com\helpcar\entities\Endereco.java
